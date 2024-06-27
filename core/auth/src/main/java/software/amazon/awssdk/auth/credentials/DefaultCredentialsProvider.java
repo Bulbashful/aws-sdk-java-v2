@@ -91,23 +91,23 @@ public final class DefaultCredentialsProvider
 
         return LazyAwsCredentialsProvider.create(() -> {
             AwsCredentialsProvider[] credentialsProviders = new AwsCredentialsProvider[] {
-//                 SystemPropertyCredentialsProvider.create(),
-//                 EnvironmentVariableCredentialsProvider.create(),
+                SystemPropertyCredentialsProvider.create(),
+                EnvironmentVariableCredentialsProvider.create(),
+                WebIdentityTokenFileCredentialsProvider.builder()
+                                                       .asyncCredentialUpdateEnabled(asyncCredentialUpdateEnabled)
+                                                       .build(),
                 ProfileCredentialsProvider.builder()
                           .profileFile(builder.profileFile)
                           .profileName(builder.profileName)
-                          .build()
-//                 WebIdentityTokenFileCredentialsProvider.builder()
-//                                                        .asyncCredentialUpdateEnabled(asyncCredentialUpdateEnabled)
-//                                                        .build(),
-//                 ContainerCredentialsProvider.builder()
-//                                             .asyncCredentialUpdateEnabled(asyncCredentialUpdateEnabled)
-//                                             .build(),
-//                 InstanceProfileCredentialsProvider.builder()
-//                                                   .asyncCredentialUpdateEnabled(asyncCredentialUpdateEnabled)
-//                                                   .profileFile(builder.profileFile)
-//                                                   .profileName(builder.profileName)
-//                                                   .build()
+                          .build(),
+                ContainerCredentialsProvider.builder()
+                                            .asyncCredentialUpdateEnabled(asyncCredentialUpdateEnabled)
+                                            .build(),
+                InstanceProfileCredentialsProvider.builder()
+                                                  .asyncCredentialUpdateEnabled(asyncCredentialUpdateEnabled)
+                                                  .profileFile(builder.profileFile)
+                                                  .profileName(builder.profileName)
+                                                  .build()
             };
 
             return AwsCredentialsProviderChain.builder()
