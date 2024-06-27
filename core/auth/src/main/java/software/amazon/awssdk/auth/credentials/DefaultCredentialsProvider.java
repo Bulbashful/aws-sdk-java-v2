@@ -97,9 +97,9 @@ public final class DefaultCredentialsProvider
                           .profileFile(builder.profileFile)
                           .profileName(builder.profileName)
                           .build(),
-                WebIdentityTokenFileCredentialsProvider.builder()
-                                                       .asyncCredentialUpdateEnabled(asyncCredentialUpdateEnabled)
-                                                       .build(),
+//                 WebIdentityTokenFileCredentialsProvider.builder()
+//                                                        .asyncCredentialUpdateEnabled(asyncCredentialUpdateEnabled)
+//                                                        .build(),
                 ContainerCredentialsProvider.builder()
                                             .asyncCredentialUpdateEnabled(asyncCredentialUpdateEnabled)
                                             .build(),
