@@ -93,13 +93,13 @@ public final class DefaultCredentialsProvider
             AwsCredentialsProvider[] credentialsProviders = new AwsCredentialsProvider[] {
                 SystemPropertyCredentialsProvider.create(),
                 EnvironmentVariableCredentialsProvider.create(),
-                WebIdentityTokenFileCredentialsProvider.builder()
-                                                       .asyncCredentialUpdateEnabled(asyncCredentialUpdateEnabled)
-                                                       .build(),
                 ProfileCredentialsProvider.builder()
                           .profileFile(builder.profileFile)
                           .profileName(builder.profileName)
                           .build(),
+                WebIdentityTokenFileCredentialsProvider.builder()
+                                                       .asyncCredentialUpdateEnabled(asyncCredentialUpdateEnabled)
+                                                       .build(),
                 ContainerCredentialsProvider.builder()
                                             .asyncCredentialUpdateEnabled(asyncCredentialUpdateEnabled)
                                             .build(),
